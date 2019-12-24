@@ -17,9 +17,13 @@ namespace Ejercicio_2
             contenidoArchivo1 = RecuperarArchivo1();
             contenidoArchivo2 = RecuperarArchivo2();
 
-            contenidoFinal = UnirArchivos(contenidoArchivo1, contenidoArchivo2);
+            //contenidoFinal = 
+            UnirArchivos(contenidoArchivo1, contenidoArchivo2);
+            //Console.WriteLine("Se recupero la informacion de dos archivos y se unio en una sola cadena de caracteres "+contenidoFinal);
 
-            Console.WriteLine(contenidoFinal);
+
+
+
 
             Console.ReadKey();
 
@@ -27,9 +31,16 @@ namespace Ejercicio_2
 
         }
 
-        private static string UnirArchivos(string contenidoArchivo1, string contenidoArchivo2)
+        private static void UnirArchivos(string contenidoArchivo1, string contenidoArchivo2)
         {
-            return contenidoArchivo1 +"\n"+ contenidoArchivo2;
+            using (StreamWriter wr = new StreamWriter(@".\Archivo Final.txt"))
+            {
+                Console.WriteLine("USANDO UN STREAMWRITER para unir dos archivos\n\n");
+                wr.Write(contenidoArchivo1 + contenidoArchivo2);
+                
+            }
+            Console.Write(File.ReadAllText(@".\Archivo Final.txt"));
+            //return contenidoArchivo1 +"\n"+ contenidoArchivo2;
         }
 
         private static string RecuperarArchivo2()
