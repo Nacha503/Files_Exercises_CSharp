@@ -32,6 +32,7 @@ namespace Ejercicio_1
         public static string LeerLineasImpares()
         {
             int numeroDeLinea = 1;
+            string lineasPares;
             using (StreamReader lectorDeTexto = new StreamReader(@".\LoreIpsum.txt"))
             {
                 do
@@ -46,6 +47,8 @@ namespace Ejercicio_1
                     {
                         //textoPreProcesado = null;
                         numeroDeLinea++;
+                        lineasPares = lectorDeTexto.ReadLine();
+
                     }
 
 
