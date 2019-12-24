@@ -40,8 +40,12 @@ namespace Ejercicio_1
                     if ((numeroDeLinea % 2) != 0)
                     {
                         textoPreProcesado = lectorDeTexto.ReadLine();
-                        textoFinal.Append(textoPreProcesado + "\n");
-                        numeroDeLinea++;
+                        if (textoPreProcesado!=null)
+                        {
+                            textoFinal.Append($"{numeroDeLinea}-" + textoPreProcesado + "\n");
+                            numeroDeLinea++;
+                        }
+                        
                     }
                     else
                     {
