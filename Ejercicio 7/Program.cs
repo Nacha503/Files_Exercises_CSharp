@@ -15,20 +15,23 @@ namespace Ejercicio_7
         {
 
 
-            string[] soloPalabras = RecuperarTexto();
+            string soloPalabras = RecuperarTexto();
 
             string patron = "start";
             Regex miRegex = new Regex(patron);
             MatchEvaluator miMatch = new MatchEvaluator(ModificarSubCadend);
 
-            StringBuilder sb = new StringBuilder();
+            string cadenaFinal = miRegex.Replace(soloPalabras, miMatch);
 
-            foreach (string item in soloPalabras)
-            {
-                sb.Append(miRegex.Replace(item, miMatch)+" ");
-            }
 
-            Console.WriteLine($"{sb.ToString()}");
+            //StringBuilder sb = new StringBuilder();
+
+            //foreach (string item in soloPalabras)
+            //{
+            //    sb.Append(miRegex.Replace(item, miMatch)+" ");
+            //}
+
+            Console.WriteLine($"{cadenaFinal}");
 
 
             Console.ReadKey();
@@ -41,17 +44,30 @@ namespace Ejercicio_7
             return "Finish";
         }
 
-        private static string[] RecuperarTexto()
+        //private static string[] RecuperarTexto()
+        //{
+        //    string recuperaTodoElTexto;
+        //    string[] soloPalabras;
+        //    using (StreamReader sReader = new StreamReader(@".\Palabras De Prueba.txt"))
+        //    {
+        //        recuperaTodoElTexto = sReader.ReadToEnd();
+        //        soloPalabras = recuperaTodoElTexto.Split(new char[] { ' ', ',', '!', '-', '^','.' }, StringSplitOptions.RemoveEmptyEntries);
+        //    }
+
+        //    return soloPalabras;
+        //}
+
+        private static string RecuperarTexto()
         {
             string recuperaTodoElTexto;
-            string[] soloPalabras;
+            //string[] soloPalabras;
             using (StreamReader sReader = new StreamReader(@".\Palabras De Prueba.txt"))
             {
                 recuperaTodoElTexto = sReader.ReadToEnd();
-                soloPalabras = recuperaTodoElTexto.Split(new char[] { ' ', ',', '!', '-', '^','.' }, StringSplitOptions.RemoveEmptyEntries);
+                //soloPalabras = recuperaTodoElTexto.Split(new char[] { ' ', ',', '!', '-', '^', '.' }, StringSplitOptions.RemoveEmptyEntries);
             }
 
-            return soloPalabras;
+            return recuperaTodoElTexto;
         }
     }
 }
